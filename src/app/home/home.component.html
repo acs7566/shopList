@@ -1,0 +1,22 @@
+<div class="container color-dark">
+  <div class="col">
+    <p>הוספת מוצרים</p>
+  </div>
+  <div class="col">
+    <p> מספר המוצרים בסל: {{ItemCount}}</p>
+  </div>
+</div>
+<div class="container color-light" [@items]="items.length">
+    <div class="col">
+      <form>
+        <input type="text" class="txt" name="item" placeholder="הכנס מוצר כאן..." [(ngModel)]="itemText">
+        <input type="submit" class="btn" value="הכנס" (click)="addItem()">
+      </form>
+    </div>
+    <div class="col">
+      <p class="life-container" *ngFor="let item of items; let i = index" (click)="removeItem(i)">
+        {{item}}
+      </p>
+    </div>
+  </div>
+  
